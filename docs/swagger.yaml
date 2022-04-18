@@ -1,0 +1,69 @@
+basePath: /api/v1
+definitions:
+  model.Response:
+    properties:
+      msg:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: test@fit2cloud.com
+    name: Fit2cloud Support
+    url: https://www.fit2cloud.com
+  description: This is a sample server
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: GoTemplate Restful API
+  version: "1.0"
+paths:
+  /greet/:
+    get:
+      consumes:
+      - application/json
+      description: show a test id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Show a test
+      tags:
+      - all
+  /greet/{username}/:
+    get:
+      consumes:
+      - application/json
+      description: show a test id
+      parameters:
+      - description: username param
+        in: query
+        maxLength: 10
+        minLength: 2
+        name: username
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Show a test
+      tags:
+      - ByName
+schemes:
+- http
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

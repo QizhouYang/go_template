@@ -1,0 +1,27 @@
+bind:
+  host: 0.0.0.0
+  port: 8080
+logging:
+  level: info
+  out_put: fileAndStd
+  max_age: 2592000
+  rotation: 86400
+db:
+  host: 172.16.12.167
+  port: 30236
+  user: root
+  password: AisBAQEBAQHkhF/z8qfr3CpI9L7oPas30bQ2/na0Egg=
+  name: template
+  max_open_conns: 200
+  max_idle_conns: 10
+jwt:
+  secret: iXDgDaEYBzIzustW
+  exp: 480
+job:
+  timeout: 60
+cron:
+  enable: true
+encrypt:
+  multilevel:
+    enable: false
+  key: KubeOperator@202
